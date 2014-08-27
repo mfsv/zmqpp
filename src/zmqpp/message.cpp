@@ -109,6 +109,16 @@ void message::reset_read_cursor()
 	_read_cursor = 0;
 }
 
+void message::inc_read_cursor()
+{
+	++_read_cursor;
+}
+
+size_t message::read_cursor() const
+{
+	return _read_cursor;
+}
+
 void message::get(int8_t& integer, size_t const part) const
 {
 	assert(sizeof(int8_t) == size(part));

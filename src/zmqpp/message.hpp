@@ -151,6 +151,8 @@ public:
 
 	// Stream reader style
 	void reset_read_cursor();
+	void inc_read_cursor();
+	size_t read_cursor() const;
 
 	template<typename Type>
 	message& operator>>(Type& value)
