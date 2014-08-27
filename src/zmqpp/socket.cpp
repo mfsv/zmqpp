@@ -780,18 +780,18 @@ void socket::track_message(message const& /* message */, uint32_t const parts, b
 
 signal socket::wait()
 {
-    while (true)
-    {
-        message msg;
-        receive(msg);
+	for (;;)
+	{
+		message msg;
+		receive(msg);
 
-        if (msg.is_signal())
-        {
-            signal sig;
-            msg.get(sig, 0);
-            return sig;
-        }
-    }
+		if (msg.is_signal())
+		{
+			signal sig;
+			msg.get(sig, 0);
+			return sig;
+		}
+	}
 }
 
 }
