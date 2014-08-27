@@ -222,6 +222,7 @@ public:
 	// Move supporting
 	message(message&& source) NOEXCEPT;
 	message& operator=(message&& source) NOEXCEPT;
+	void append(message&& source);
 
 	// Copy support
 	message copy() const;

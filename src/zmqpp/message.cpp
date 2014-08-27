@@ -439,6 +439,11 @@ message& message::operator=(message&& source) NOEXCEPT
 	return *this;
 }
 
+void message::append(message&& source)
+{
+	std::copy(std::make_move_iterator(source._parts.begin()), std::make_move_iterator(source._parts.end()), std::back_inserter(_parts));
+}
+
 message message::copy() const
 {
 	message msg;
